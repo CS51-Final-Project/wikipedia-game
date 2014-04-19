@@ -1,0 +1,22 @@
+.firstHeading { margin-bottom:0.1em; font-family: Arial Unicode MS;}
+
+ *.rtl 
+ {
+  dir:rtl;
+  text-align:right;
+  font-family: Arial Unicode MS,sans-serif,apsni; 
+ }
+
+ body {font-family: Arial Unicode MS, sans-serif, apsni;}
+ h1 {font-family: Arial Unicode MS, sans-serif, apsni;}
+ h2 {font-family: Arial Unicode MS, sans-serif, apsni;}
+ h3 {font-family: Arial Unicode MS, sans-serif, apsni;}
+ textarea {font-family: Arial Unicode MS, sans-serif, apsni;}
+ text {font-family: Arial Unicode MS, sans-serif, apsni}
+ input {font-family: Arial Unicode MS, sans-serif, apsni;}
+ a:link {text-decoration: none; background: none;}
+ a:visited {text-decoration: none; background: none;}
+ a:hover {text-decoration: underline;}
+
+ /* Recent Changes */
+ font.newPage { background-color: brown; color: yellow; }
