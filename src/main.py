@@ -48,6 +48,6 @@ def BFS(src, dest):
         #set the previous
         for p in links:
             prev[p] = s
-        q = links + q
+        q = q + links
         
         
