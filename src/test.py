@@ -3,7 +3,8 @@
 import main
 
 src = "a.html"
-dest = "b.html"
+dest = "c.html"
 
 print main.BFS(src, dest)
+main.print_path(dest)
 #print main.extract_links(src)

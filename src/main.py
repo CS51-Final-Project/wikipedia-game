@@ -21,11 +21,12 @@ def visited(path):
     except(Exception):
         return False
 
-def print_path(s, hist):
-    road = []
+def print_path(s):
+    road = [s]
     while prev[s] != None:
         road.append(prev[s])
         s = prev[s]
+    print road
         
         
 def BFS(src, dest):
@@ -36,7 +37,6 @@ def BFS(src, dest):
         #pop an element off the queue
         s = q.pop(0)
         marked[s] = True
-
         #return it if it's what we're looking for
         if s == dest:
             return s
@@ -48,5 +48,3 @@ def BFS(src, dest):
         for p in links:
             prev[p] = s
         q = q + links
-        
-        
