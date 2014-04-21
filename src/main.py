@@ -36,8 +36,7 @@ def BFS(src, dest):
         #pop an element off the queue
         s = q.pop(0)
         marked[s] = True
-        print s
-        
+
         #return it if it's what we're looking for
         if s == dest:
             return s
