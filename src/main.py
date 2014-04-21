@@ -3,14 +3,17 @@
 import re
 
 marked = {}
-previous = {}
+prev = {}
 
 def extract_links(path):
-    f = open(path)
-    text = f.read()
-    pat = re.compile('href=[\'"]?([^\'" >]+)')
-    links = re.findall(pat, text)
-    return links
+    try:
+        f = open(path)
+        text = f.read()
+        pat = re.compile('<a href=[\'"]?([^\'" >]+)')
+        links = re.findall(pat, text)
+        return links
+    except(Exception):
+        return []
 
 def visited(path): 
     try:
@@ -28,17 +31,23 @@ def print_path(s, hist):
 def BFS(src, dest):
     q = [src]
     prev[src] = None
+    global marked
     while len(q) > 0:
         #pop an element off the queue
-        s = q[0]
+        s = q.pop(0)
+        marked[s] = True
+        print s
+        
         #return it if it's what we're looking for
         if s == dest:
             return s
-        #extract all the pages it links for
-        links = filter(visited, extract_links(s))
+            
+        #extract all the pages it links for, filter for not visited
+        links = filter(lambda x : not visited(x), extract_links(s))
+        
         #set the previous
         for p in links:
-            previous[p] = s
-        q.append(links)
+            prev[p] = s
+        q = links + q
         
         
