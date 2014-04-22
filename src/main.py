@@ -1,17 +1,16 @@
 #!/usr/bin/env python
 
 import re
+import os
 
 marked = {}
 prev = {}
 
 def extract_links(path):
     try:
-        f = open(path)
-        text = f.read()
+        text = open(path).read()
         pat = re.compile('<a href=[\'"]?([^\'" >]+)')
-        links = re.findall(pat, text)
-        return links
+        return re.findall(pat, text)
     except(Exception):
         return []
 
@@ -36,9 +35,10 @@ def BFS(src, dest):
     while len(q) > 0:
         #pop an element off the queue
         s = q.pop(0)
+        print s
         marked[s] = True
         #return it if it's what we're looking for
-        if s == dest:
+        if os.path.abspath(s) == os.path.abspath(dest):
             return s
             
         #extract all the pages it links for, filter for not visited

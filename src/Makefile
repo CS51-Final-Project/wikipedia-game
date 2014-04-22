@@ -1,2 +1,2 @@
 clean:
-	rm ./*~ && rm ./*.pyc
+	rm ./*~; rm ./*.pyc

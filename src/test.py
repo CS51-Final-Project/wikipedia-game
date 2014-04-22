@@ -2,9 +2,9 @@
 
 import main
 
-src = "a.html"
-dest = "c.html"
+src = "../wiki/Nickelodeon_(TV_channel)"
+dest = "../wiki/New_York_City"
 
 print main.BFS(src, dest)
-main.print_path(dest)
+
 #print main.extract_links(src)
