@@ -30,5 +30,8 @@ def most_links():
 	return (sorted(popular, key=popular.__getitem__, reverse=True))[0]
 
 def link_frequency(link):
-	
+	try:
+		print popular[link]
+	except(Exception):
+		print "Article not in dictionary"
 
