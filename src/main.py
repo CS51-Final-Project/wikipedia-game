@@ -17,9 +17,10 @@ def extract_links(path):
     links = map(lambda x : WIKI_DIR + x, links) # prepend all these filenames with WIKI_DIR
     links = filter(lambda x : os.path.isfile(x), links) # get rid of bad paths
     links = filter(lambda x : not x in visited, links) # get rid of files already visited
-    
+    links = uniq(links)
+
     return links
-    
+
 def uniq(old_list):
     new_list = []
     already_seen = sets.Set([])
@@ -44,22 +45,30 @@ def BFS(src, dest):
     src = WIKI_DIR + src
     dest = WIKI_DIR + dest
     q = [src]
-    prev[src] = None
+
     global visited
+    global prev
+
     visited = sets.Set()
+    prev = {}
+    prev[src] = None    
+    
     while len(q) > 0:
+        print map(lambda x : x.split("/")[-1], q), "\n"
         #pop an element off the queue and mark it as visited
         s = q.pop(0)
-        visited.add(s)
-        
-        #return it if it's what we're looking for
-        if os.path.abspath(s) == os.path.abspath(dest):
-            print_path(s)
-            return
-            #extract all the pages it links to
-        links = extract_links(s)
-        #set the previous
-        for p in links:
-            prev[p] = s
-            q = q + links
-        q = uniq(q)
+        if s in visited:
+            continue
+        else:
+            visited.add(s)
+            #return if it's what we're looking for
+            if os.path.abspath(s) == os.path.abspath(dest):
+                print_path(s)
+                return
+                #extract all the pages it links to
+            links = extract_links(s)
+                #set the previous
+            for p in links:
+                prev[p] = s
+                q.append(p)
+            
