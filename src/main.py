@@ -42,33 +42,29 @@ def print_path(s):
         print p
         
 def BFS(src, dest):
+    global visited
+    global prev
+    
     src = WIKI_DIR + src
     dest = WIKI_DIR + dest
     q = [src]
-
-    global visited
-    global prev
-
-    visited = sets.Set()
-    prev = {}
+    visited.add(src)
     prev[src] = None    
     
     while len(q) > 0:
-        print map(lambda x : x.split("/")[-1], q), "\n"
         #pop an element off the queue and mark it as visited
         s = q.pop(0)
-        if s in visited:
-            continue
-        else:
-            visited.add(s)
-            #return if it's what we're looking for
-            if os.path.abspath(s) == os.path.abspath(dest):
-                print_path(s)
-                return
-                #extract all the pages it links to
-            links = extract_links(s)
-                #set the previous
-            for p in links:
-                prev[p] = s
-                q.append(p)
-            
+        
+        #return if it's what we're looking for and print the path
+        if os.path.abspath(s) == os.path.abspath(dest):
+            print_path(dest)
+            return
+            #extract all the pages it links to
+        links = extract_links(s)
+        #set the parent, add all the links to the queue, and mark them as visited
+        for p in links:
+            prev[p] = s
+            q.append(p)
+            visited.add(p)
+    visited = sets.Set()
+    prev = {}            
