@@ -2,8 +2,8 @@
 
 import main
 
-src = "../wiki/Nickelodeon_(TV_channel)"
-dest = "../wiki/New_York_City"
+src = "../wiki//Nickelodeon_(TV_channel)"
+dest = "../wiki//New_York_City"
 
 print main.BFS(src, dest)
 
