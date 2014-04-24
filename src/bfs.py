@@ -58,7 +58,7 @@ def BFS(src, dest):
         #return if it's what we're looking for and print the path
         if os.path.abspath(s) == os.path.abspath(dest):
             print_path(dest)
-            return
+            return prev
             #extract all the pages it links to
         links = extract_links(s)
         #set the parent, add all the links to the queue, and mark them as visited

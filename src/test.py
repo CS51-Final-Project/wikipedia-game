@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
-import main
+import bfs
 
 src = "United_Kingdom"
 dest = "Teenage_Mutant_Ninja_Turtles"
 
-main.BFS(src, dest)
+bfs.BFS(src, dest)
