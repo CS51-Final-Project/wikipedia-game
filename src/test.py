@@ -2,9 +2,7 @@
 
 import main
 
-src = "../wiki//Nickelodeon_(TV_channel)"
-dest = "../wiki//New_York_City"
+src = "United_Kingdom"
+dest = "Teenage_Mutant_Ninja_Turtles"
 
-print main.BFS(src, dest)
-
-#print main.extract_links(src)
+main.BFS(src, dest)

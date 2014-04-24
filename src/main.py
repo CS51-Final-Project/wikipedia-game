@@ -3,7 +3,6 @@
 import re
 import os
 import sets
-import pprint
 
 visited = sets.Set([])
 prev = {}
@@ -16,7 +15,7 @@ def extract_links(path):
     links = re.findall(pat, text) # find the links urls in the file
     
     links = map(lambda x : WIKI_DIR + x, links) # prepend all these filenames with WIKI_DIR
-    links = filter(lambda x : os.path.isfile(x), links) # get rid of false files
+    links = filter(lambda x : os.path.isfile(x), links) # get rid of bad paths
     links = filter(lambda x : not x in visited, links) # get rid of files already visited
     
     return links
@@ -37,8 +36,9 @@ def print_path(s):
     while prev[s] != None:
         road.append(prev[s])
         s = prev[s]
-    road = reverse(road)
-    pprint.pprint(road)
+    road.reverse()
+    for p in road:
+        print p
         
 def BFS(src, dest):
     src = WIKI_DIR + src
@@ -46,6 +46,7 @@ def BFS(src, dest):
     q = [src]
     prev[src] = None
     global visited
+    visited = sets.Set()
     while len(q) > 0:
         #pop an element off the queue and mark it as visited
         s = q.pop(0)
@@ -54,7 +55,7 @@ def BFS(src, dest):
         #return it if it's what we're looking for
         if os.path.abspath(s) == os.path.abspath(dest):
             print_path(s)
-            return s
+            return
             #extract all the pages it links to
         links = extract_links(s)
         #set the previous
