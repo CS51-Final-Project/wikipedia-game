@@ -41,12 +41,13 @@ def print_path(s):
     for p in road:
         print p
         
-def BFS(src, dest):
+def BFS(src, dest = None):
     global visited
     global prev
     
     src = WIKI_DIR + src
-    dest = WIKI_DIR + dest
+    if dest:
+        dest = WIKI_DIR + dest
     q = [src]
     visited.add(src)
     prev[src] = None    
@@ -56,7 +57,7 @@ def BFS(src, dest):
         s = q.pop(0)
         
         #return if it's what we're looking for and print the path
-        if os.path.abspath(s) == os.path.abspath(dest):
+        if dest and os.path.abspath(s) == os.path.abspath(dest):
             print_path(dest)
             return prev
             #extract all the pages it links to
@@ -66,5 +67,6 @@ def BFS(src, dest):
             prev[p] = s
             q.append(p)
             visited.add(p)
+    return prev
     visited = sets.Set()
     prev = {}            
