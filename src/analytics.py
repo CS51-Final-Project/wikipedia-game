@@ -12,7 +12,7 @@ WIKI_DIR = '/Users/kevinrankine/wikipedia-game/wiki/'
 
 
 #only gets all links from one path, not sure how to traverse directory and run on each file
-defs load_dict():
+def load_dict():
     for x in os.listdir(WIKI_DIR):
         links_to_follow = links = extract_links(path)
         for x in links:
