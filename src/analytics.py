@@ -29,6 +29,7 @@ def load_dict():
                 popular[links] += 1; #update frequency of link
             else:
                 popular[links] = 1; #add element to dictionary
+    return popular
 
 #returns key from dictionary with the most links
 def most_links():
@@ -48,4 +49,10 @@ def center():
     for p in pages:
         center_dict[p] = len(bfs.BFS(p).keys())
     return sorted(center_dict, key = center_dict.__getitem__, reverse = True)[0]
+
+def location(path):
+    load_links()
+    for x in load_dict()
+        print x
+
 
