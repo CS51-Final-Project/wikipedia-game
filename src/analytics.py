@@ -52,7 +52,7 @@ def center():
 
 def location(path):
     load_links()
-    for x in load_dict()
+    for x in load_dict():
         print x
 
 
