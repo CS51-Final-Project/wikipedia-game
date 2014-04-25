@@ -3,6 +3,8 @@
 import analytics
 import bfs
 
-for keys, values in analytics.all_links():
+my_dict = analytics.load_links()
+
+for keys, values in my_dict:
 	print(keys)
 	print(values)
