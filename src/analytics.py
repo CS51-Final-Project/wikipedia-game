@@ -15,9 +15,9 @@ WIKI_DIR = '/Users/kevinrankine/wikipedia-game/wiki/'
 #only gets all links from one path, not sure how to traverse directory and run on each file
 def load_dict():
     for x in os.listdir(WIKI_DIR):
-        links_to_follow = links = bfs.extract_links(x)
+        links_to_follow = links = bfs.extract_links(WIKI_DIR + x)
         for x in links:
-            visited.add(x)
+            visited.add(WIKI_DIR + x)
         while len(links) > 0:
             if links[0] in popular.keys():
                 popular[links[0]] += 1; #update frequency of link
