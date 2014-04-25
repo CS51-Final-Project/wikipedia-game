@@ -12,7 +12,7 @@ WIKI_DIR = '/Users/kevinrankine/wikipedia-game/wiki/'
 
 
 #only gets all links from one path, not sure how to traverse directory and run on each file
-def load_dict():
+defs load_dict():
     for x in os.listdir(WIKI_DIR):
         links_to_follow = links = extract_links(path)
         for x in links:
@@ -37,5 +37,7 @@ def link_frequency(link):
         print popular[link]
     except(Exception):
         print "Article not in dictionary"
+
+
 
 
