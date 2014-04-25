@@ -3,6 +3,7 @@
 import re
 import bfs
 import sets
+import os
 
 #dictionary for links
 popular = {}
