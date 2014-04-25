@@ -19,22 +19,24 @@ def load_links():
     return all_links
 
 #only gets all links from one path, not sure how to traverse directory and run on each file
-"""def load_dict():
+def load_dict():
     for x in all_links.keys()
-            visited.add(all_links(x))
-        while len(all_links) > 0:
+        for y in x
+            visited.add(y)
+        for links in all_links:
             if all_links[x][0] in popular.keys():
                 popular[all_links[x][0]] += 1; #update frequency of link
             else:
                 popular[all_links[x].pop(0)] = 1; #add element to dictionary
-        for x in links_to_follow:
-            if x in visited:
+        for z in all_links[x]:
+            if z in visited:
                 pass
             else:
-                load_dict(x)
-"""
+                load_dict(z)
+
 #returns key from dictionary with the most links
 def most_links():
+    load_links()
     load_dict()
     return (sorted(popular, key=popular.__getitem__, reverse=True))[0]
 
