@@ -72,10 +72,10 @@ def BFS(src, dest = None):
     prev = {}            
     return r
 
-def mBFS():
+def center():
+    center_dict = {}
     pages = os.listdir(WIKI_DIR)
     for p in pages:
-        parent = BFS(p)
-        for q in pages:
-            print print_path(q, parent)
-    return
+        center_dict[p] = len(BFS(p).keys())
+    return sorted(num_connected_to, key = center_dict.__getitem__, reverse = True)[0]
+
