@@ -77,5 +77,5 @@ def center():
     pages = os.listdir(WIKI_DIR)
     for p in pages:
         center_dict[p] = len(BFS(p).keys())
-    return sorted(num_connected_to, key = center_dict.__getitem__, reverse = True)[0]
+    return sorted(center_dict, key = center_dict.__getitem__, reverse = True)[0]
 
