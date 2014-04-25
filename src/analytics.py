@@ -23,11 +23,11 @@ def load_dict():
     for x in all_links.keys():
         for y in x:
             visited.add(y)
-        for links in all_links:
-            if all_links[x][0] in popular.keys():
-                popular[all_links[x][0]] += 1; #update frequency of link
+        for links in all_links[x]:
+            if links in popular.keys():
+                popular[links] += 1; #update frequency of link
             else:
-                popular[all_links[x].pop(0)] = 1; #add element to dictionary
+                popular[links] = 1; #add element to dictionary
         for z in all_links[x]:
             if z in visited:
                 pass
