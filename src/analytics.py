@@ -28,11 +28,6 @@ def load_dict():
                 popular[links] += 1; #update frequency of link
             else:
                 popular[links] = 1; #add element to dictionary
-        for z in all_links[x]:
-            if z in visited:
-                pass
-            else:
-                load_dict(z)
 
 #returns key from dictionary with the most links
 def most_links():
