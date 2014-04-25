@@ -5,4 +5,4 @@ import bfs
 
 my_dict = analytics.load_links()
 
-print(my_dict)
+print analytics.most_links()
