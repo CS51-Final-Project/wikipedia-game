@@ -26,7 +26,7 @@ def load_dict():
             if x in visited:
                 pass
             else:
-            load_dict(x)
+                load_dict(x)
 
 #returns key from dictionary with the most links
 def most_links():
