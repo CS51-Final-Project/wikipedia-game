@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 
 import bfs
+import analytics
 
-src = "United_Kingdom"
-dest = "Teenage_Mutant_Ninja_Turtles"
+print most_links()
 
-bfs.BFS(src, dest)
