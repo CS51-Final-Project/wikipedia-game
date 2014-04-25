@@ -30,6 +30,7 @@ def load_dict():
 
 #returns key from dictionary with the most links
 def most_links():
+    load_dict()
     return (sorted(popular, key=popular.__getitem__, reverse=True))[0]
 
 def link_frequency(link):
