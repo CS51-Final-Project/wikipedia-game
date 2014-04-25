@@ -32,15 +32,15 @@ def uniq(old_list):
             already_seen.add(x)
     return new_list
 
-def print_path(s):
+def print_path(s, parent):
     road = [s]
-    while prev[s] != None:
-        road.append(prev[s])
-        s = prev[s]
+    while s in parent.keys() and parent[s] != None:
+        road.append(parent[s])
+        s = parent[s]
     road.reverse()
+    print "THE PATH IS: \n"
     for p in road:
         print p
-        
 def BFS(src, dest = None):
     global visited
     global prev
@@ -58,7 +58,7 @@ def BFS(src, dest = None):
         
         #return if it's what we're looking for and print the path
         if dest and os.path.abspath(s) == os.path.abspath(dest):
-            print_path(dest)
+            print_path(dest, prev)
             return prev
             #extract all the pages it links to
         links = extract_links(s)
@@ -67,6 +67,15 @@ def BFS(src, dest = None):
             prev[p] = s
             q.append(p)
             visited.add(p)
-    return prev
+    r = prev
     visited = sets.Set()
     prev = {}            
+    return r
+
+def mBFS():
+    pages = os.listdir(WIKI_DIR)
+    for p in pages:
+        parent = BFS(p)
+        for q in pages:
+            print print_path(q, parent)
+    return
