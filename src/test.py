@@ -5,6 +5,4 @@ import bfs
 
 my_dict = analytics.load_links()
 
-for keys, values in my_dict:
-	print(keys)
-	print(values)
+print(my_dict)
