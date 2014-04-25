@@ -11,24 +11,27 @@ visited = sets.Set()
 
 WIKI_DIR = '/Users/kevinrankine/wikipedia-game/wiki/'
 
+all_links = {}
+
+def load_links():
+    for x in os.listdir(WIKI_DIR):
+        all_links[x] = bfs.extract_links(WIKI_DIR + x)
 
 #only gets all links from one path, not sure how to traverse directory and run on each file
-def load_dict():
-    for x in os.listdir(WIKI_DIR):
-        links_to_follow = links = bfs.extract_links(WIKI_DIR + x)
-        for x in links:
-            visited.add(WIKI_DIR + x)
-        while len(links) > 0:
-            if links[0] in popular.keys():
-                popular[links[0]] += 1; #update frequency of link
+"""def load_dict():
+    for x in all_links.keys()
+            visited.add(all_links(x))
+        while len(all_links) > 0:
+            if all_links[x][0] in popular.keys():
+                popular[all_links[x][0]] += 1; #update frequency of link
             else:
-                popular[links.pop(0)] = 1; #add element to dictionary
+                popular[all_links[x].pop(0)] = 1; #add element to dictionary
         for x in links_to_follow:
             if x in visited:
                 pass
             else:
                 load_dict(x)
-
+"""
 #returns key from dictionary with the most links
 def most_links():
     load_dict()
