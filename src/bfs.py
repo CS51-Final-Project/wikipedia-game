@@ -45,7 +45,7 @@ def print_path(s, parent):
 def BFS(src, dest = None):
     global visited
     global prev
-    all_links = analytics.all_links()
+    all_links = analytics.load_links()
     
     src = WIKI_DIR + src
     if dest:
