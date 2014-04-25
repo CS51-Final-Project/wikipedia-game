@@ -21,7 +21,7 @@ def load_links():
 #only gets all links from one path, not sure how to traverse directory and run on each file
 def load_dict():
     for x in all_links.keys():
-        for y in x
+        for y in x:
             visited.add(y)
         for links in all_links:
             if all_links[x][0] in popular.keys():
