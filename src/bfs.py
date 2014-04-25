@@ -71,11 +71,3 @@ def BFS(src, dest = None):
     visited = sets.Set()
     prev = {}            
     return r
-
-def center():
-    center_dict = {}
-    pages = os.listdir(WIKI_DIR)
-    for p in pages:
-        center_dict[p] = len(BFS(p).keys())
-    return sorted(center_dict, key = center_dict.__getitem__, reverse = True)[0]
-
