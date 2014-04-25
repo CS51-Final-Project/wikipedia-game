@@ -41,6 +41,10 @@ def link_frequency(link):
     except(Exception):
         print "Article not in dictionary"
 
-
-
+def center():
+    center_dict = {}
+    pages = os.listdir(WIKI_DIR)
+    for p in pages:
+        center_dict[p] = len(BFS(p).keys())
+    return sorted(center_dict, key = center_dict.__getitem__, reverse = True)[0]
 
