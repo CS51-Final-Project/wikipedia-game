@@ -3,6 +3,7 @@
 import re
 import os
 import sets
+import analytics
 
 visited = sets.Set([])
 prev = {}
@@ -44,6 +45,7 @@ def print_path(s, parent):
 def BFS(src, dest = None):
     global visited
     global prev
+    all_links = analytics.all_links()
     
     src = WIKI_DIR + src
     if dest:
@@ -61,7 +63,7 @@ def BFS(src, dest = None):
             print_path(dest, prev)
             return prev
             #extract all the pages it links to
-        links = extract_links(s)
+        links = all_links[s]
         #set the parent, add all the links to the queue, and mark them as visited
         for p in links:
             prev[p] = s
