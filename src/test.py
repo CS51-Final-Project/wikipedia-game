@@ -5,7 +5,8 @@ import bfs
 
 my_dict = analytics.load_links()
 
-print my_dict.keys()
+for x in my_dict.keys():
+	print x
 
 """
 print my_dict['African_American']
