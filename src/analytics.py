@@ -20,11 +20,11 @@ def load_links():
     return all_links
 
 #only gets all links from one path, not sure how to traverse directory and run on each file
-def load_dict():
-    for x in all_links.keys():
+def load_dict(dictionary):
+    for x in dictionary.keys():
         for y in x:
             visited.add(y)
-        for links in all_links[x]:
+        for links in dictionary[x]:
             if links in popular.keys():
                 popular[links] += 1; #update frequency of link
             else:
@@ -32,9 +32,8 @@ def load_dict():
     return popular
 
 #returns key from dictionary with the most links
-def most_links():
-    load_links()
-    load_dict()
+def most_links(dictionary):
+    load_dict(dictionary)
     return (sorted(popular, key=popular.__getitem__, reverse=True))[0]
 
 def link_frequency(link):
@@ -54,5 +53,6 @@ def location(path):
     load_links()
     for x in load_dict():
         print x
+
 
 
