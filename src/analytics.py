@@ -50,10 +50,12 @@ def center():
         center_dict[p] = len(bfs.BFS(p).keys())
     return sorted(center_dict, key = center_dict.__getitem__, reverse = True)[0]
 
-def location(dictionary):
-    load_links()
-    for x in load_dict():
-        print x
+def where_referenced(link, dictionary):
+    try:
+        print dictionary[link]
+    except(Exception):
+        print "Article not in dictionary"
+
 
 
 
