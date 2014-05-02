@@ -14,11 +14,11 @@ def extract_links(path):
     
     pat = re.compile('<a href=[\'"]?([^\'" >]+)') # regexp for link urls
     links = re.findall(pat, text) # find the links urls in the file
-    
-    links = map(lambda x : WIKI_DIR + x, links) # prepend all these filenames with WIKI_DIR
+    links = uniq(links)
     links = filter(lambda x : os.path.isfile(x), links) # get rid of bad paths
     links = filter(lambda x : not x in visited, links) # get rid of files already visited
-    links = uniq(links)
+    links = map(lambda x : x.lower(), links)
+    links = map(lambda x : WIKI_DIR + x, links) # prepend all these filenames with WIKI_DIR
 
     return links
 
@@ -35,11 +35,10 @@ def uniq(old_list):
 
 def print_path(s, parent):
     road = [s]
-    while s in parent.keys() and parent[s] != None:
+    while s in parent[s] != None:
         road.append(parent[s])
         s = parent[s]
     road.reverse()
-    print "THE PATH IS: \n"
     for p in road:
         print p
 def BFS(src, dest = None, wiki_dict = None):
