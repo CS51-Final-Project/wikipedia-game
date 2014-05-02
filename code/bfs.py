@@ -39,6 +39,7 @@ def the_path(s, parent):
     road.reverse()
     return road
 
+
 def BFS(src, dest = None, wiki_dict = None):
     global visited
     global prev
