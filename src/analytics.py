@@ -39,7 +39,7 @@ def most_links(dictionary):
 def link_frequency(link, dictionary):
     load_dict(dictionary)
     try:
-        print popular[link]
+        print "%s is referenced %s number of times" % link, popular[link]
     except(Exception):
         print "Article not in dictionary"
 
@@ -52,7 +52,7 @@ def center():
 
 def where_referenced(link, dictionary):
     try:
-        print dictionary[link]
+        print "%s is referenced on the following pages: \n %s" link, dictionary[link]
     except(Exception):
         print "Article not in dictionary"
 
