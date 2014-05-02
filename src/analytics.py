@@ -9,7 +9,7 @@ import os
 popular = {}
 visited = sets.Set()
 
-
+WIKI_DIR = "/Users/kevinrankine/Repos/wikipedia-game/wiki/"
 all_links = {}
 
 def load_links():
