@@ -42,7 +42,7 @@ def print_path(s, parent):
     print "THE PATH IS: \n"
     for p in road:
         print p
-def BFS(src, dest = None):
+def BFS(src, dest = None, wiki_dict = None):
     global visited
     global prev
     all_links = analytics.load_links()
@@ -63,7 +63,10 @@ def BFS(src, dest = None):
             print_path(dest, prev)
             return prev
             #extract all the pages it links to
-        links = all_links[s]
+        if wiki_dict:
+            links = wiki_dict[s]
+        else:
+            links = extract_links(s)
         #set the parent, add all the links to the queue, and mark them as visited
         for p in links:
             prev[p] = s
