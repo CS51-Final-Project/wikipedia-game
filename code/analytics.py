@@ -53,7 +53,10 @@ def where_referenced(link, dictionary):
         if link in key:
             references.add(key)
     try:
-        print "{0} is referenced on the following pages: \n {1}".format(link, references)
+        print "{0} is referenced on the following pages:".format(link)
+        for page in references:
+            print page
+        print "\n"
     except(Exception):
         print "Article not in dictionary"
 

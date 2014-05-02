@@ -38,6 +38,7 @@ def the_path(s, parent):
         s = parent[s]
     road.reverse()
     return road
+
 def BFS(src, dest = None, wiki_dict = None):
     global visited
     global prev
@@ -66,9 +67,9 @@ def BFS(src, dest = None, wiki_dict = None):
         #set the parent, add all the links to the queue, and mark them as visited
         for p in links:
             if not p in visited:
-                prev[p] = visited
+                prev[p] = s
                 q.append(p) 
-                visited.add(s)
+                visited.add(p)
     r = prev
     visited = sets.Set()
     prev = {}        

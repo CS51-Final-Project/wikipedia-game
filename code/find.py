@@ -9,8 +9,12 @@ print "The shortest path between {0} and {1} is following the following links: \
 
 
 if len(sys.argv) == 4 and sys.argv[3] == "-analytics":
+	print "\n"
 	print "The most popular three articles in Wikipedia are: \n{0}".format(analytics.most_links(wiki_dict))
+	print "\n"
+	print "Initializing BFS..."
 	print "The center of Wikipedia is {0}".format(analytics.center(wiki_dict))
+	print "\n"
 	analytics.where_referenced((sys.argv[1]).lower(), wiki_dict)
 	analytics.where_referenced((sys.argv[2]).lower(), wiki_dict)
 
