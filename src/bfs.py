@@ -7,7 +7,7 @@ import analytics
 
 visited = sets.Set([])
 prev = {}
-WIKI_DIR = '/Users/kevinrankine/Repos/wikipedia-game/wiki/'
+WIKI_DIR = os.path.abspath("../wiki") +"/"
 
 def extract_links(path):
     text = open(path).read() # open the file for reading
