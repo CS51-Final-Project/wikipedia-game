@@ -9,13 +9,11 @@ import os
 popular = {}
 visited = sets.Set()
 
-WIKI_DIR = '/Users/kevinrankine/Repos/wikipedia-game/wiki/'
 
 all_links = {}
 
 def load_links():
     for x in os.listdir(WIKI_DIR):
-        x = WIKI_DIR + x
         all_links[x.lower()] = bfs.extract_links(x)
     return all_links
 
