@@ -39,8 +39,9 @@ def center(dictionary):
     center_dict = {}
     pages = os.listdir(WIKI_DIR)
     counter = 1
+    length = len(pages)
     for p in pages:
-        print "{0} - {1}".format(counter, p)
+        print "{0}/{1} - {2} BFSed".format(counter, length, p)
         counter += 1
         center_dict[p] = len(bfs.BFS(p, wiki_dict = dictionary).keys())
     return sorted(center_dict, key = center_dict.__getitem__, reverse = True)[0]
