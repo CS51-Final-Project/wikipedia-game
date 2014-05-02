@@ -49,8 +49,13 @@ def center(dictionary):
     return sorted(center_dict, key = center_dict.__getitem__, reverse = True)[0]
 
 def where_referenced(link, dictionary):
+    load_dict(dictionary)
+    references = sets.Set()
+    for key in dict.keys():
+        if link in key:
+            references.add(key)
     try:
-        print "{0} is referenced on the following pages: \n {1}".format(link, dictionary[link])
+        print "{0} is referenced on the following pages: \n {1}".format(link, references)
     except(Exception):
         print "Article not in dictionary"
 
