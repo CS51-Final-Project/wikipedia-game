@@ -34,11 +34,6 @@ def most_links(dictionary):
     load_dict(dictionary) #create a popular dictionary from the condensed dictionary
     return (sorted(popular, key=popular.__getitem__, reverse=True))[:3] #return the most popular
 
-def link_frequency(link, dictionary):
-    try:
-        print "{0} is referenced {1} number of times".format(link, popular[link])
-    except(Exception):
-        print "Article not in dictionary"
 
 def center(dictionary):
     center_dict = {}
