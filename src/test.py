@@ -9,7 +9,7 @@ print "The shortest path between {0} and {1} is following the following links: \
 analytics.where_referenced((sys.argv[1]).lower(), wiki_dict)
 analytics.where_referenced((sys.argv[2]).lower(), wiki_dict)
 
-if len(sys.argv[4]) == "-analytics":
+if len(sys.argv) == 4 and len(sys.argv[3]) == "-analytics":
 	print "The most popular three articles in Wikipedia are: \n{0}".format(analytics.most_links(wiki_dict))
 	print "The center of Wikipedia is {0}".format(analytics.center(wiki_dict))
 
