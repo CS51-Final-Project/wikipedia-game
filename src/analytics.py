@@ -34,7 +34,7 @@ def load_dict(dictionary):
 #returns key from dictionary with the most links
 def most_links(dictionary):
     load_dict(dictionary) #create a popular dictionary from the condensed dictionary
-    return (sorted(popular, key=popular.__getitem__, reverse=True))[0] #return the most popular
+    return (sorted(popular, key=popular.__getitem__, reverse=True))[:3] #return the most popular
 
 def link_frequency(link, dictionary):
     load_dict(dictionary)
@@ -48,7 +48,7 @@ def center(dictionary):
     pages = os.listdir(WIKI_DIR)
     for p in pages:
         center_dict[p] = len(bfs.BFS(p, wiki_dict = dictionary).keys())
-    return sorted(center_dict, key = center_dict.__getitem__, reverse = True)[:3]
+    return sorted(center_dict, key = center_dict.__getitem__, reverse = True)[0]
 
 def where_referenced(link, dictionary):
     try:
