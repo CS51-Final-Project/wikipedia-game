@@ -53,10 +53,9 @@ def center(dictionary):
 
 #returns all pages that reference a certain page
 def where_referenced(link, dictionary):
-    load_dict(dictionary) #loads popular dictionary
     references = sets.Set() #initializes a new set for references
-    for key in popular.keys(): #for each page
-        if link in key: #if it references the page of interest
+    for key in dictionary.keys(): #for each page
+        if link in dictionary[key]: #if it references the page of interest
             references.add(key) #add it to the list of references
     try:
         print "{0} is referenced on the following pages:".format(link)
