@@ -35,7 +35,6 @@ def most_links(dictionary):
     return (sorted(popular, key=popular.__getitem__, reverse=True))[:3] #return the most popular
 
 def link_frequency(link, dictionary):
-    load_dict(dictionary)
     try:
         print "{0} is referenced {1} number of times".format(link, popular[link])
     except(Exception):
@@ -49,9 +48,8 @@ def center(dictionary):
     return sorted(center_dict, key = center_dict.__getitem__, reverse = True)[0]
 
 def where_referenced(link, dictionary):
-    load_dict(dictionary)
     references = sets.Set()
-    for key in dict.keys():
+    for key in popular.keys():
         if link in key:
             references.add(key)
     try:
