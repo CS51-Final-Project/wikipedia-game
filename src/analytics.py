@@ -19,12 +19,12 @@ def load_links():
         all_links[x] = bfs.extract_links(x)
     return all_links
 
-#only gets all links from one path, not sure how to traverse directory and run on each file
+#only gets all links from one path
 def load_dict(dictionary):
-    for x in dictionary.keys():
-        for y in x:
-            visited.add(y)
-        for links in dictionary[x]:
+    for keys in dictionary.keys(): #loop for all keys in dictionary
+        for link in link_list: #keep track of links we've visited
+            visited.add(link)
+        for links in dictionary[keys]:
             if links in popular.keys():
                 popular[links] += 1; #update frequency of link
             else:
@@ -33,10 +33,11 @@ def load_dict(dictionary):
 
 #returns key from dictionary with the most links
 def most_links(dictionary):
-    load_dict(dictionary)
-    return (sorted(popular, key=popular.__getitem__, reverse=True))[0]
+    load_dict(dictionary) #create a popular dictionary from the condensed dictionary
+    return (sorted(popular, key=popular.__getitem__, reverse=True))[0] #return the most popular
 
-def link_frequency(link):
+def link_frequency(link, dictionary):
+    load_dict(dictionary)
     try:
         print popular[link]
     except(Exception):
@@ -49,7 +50,7 @@ def center():
         center_dict[p] = len(bfs.BFS(p).keys())
     return sorted(center_dict, key = center_dict.__getitem__, reverse = True)[0]
 
-def location(path):
+def location(dictionary):
     load_links()
     for x in load_dict():
         print x
