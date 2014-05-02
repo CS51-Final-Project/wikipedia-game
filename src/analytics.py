@@ -14,7 +14,7 @@ all_links = {}
 
 def load_links():
     for x in os.listdir(WIKI_DIR):
-        all_links[x.lower()] = bfs.extract_links(x)
+        all_links[x.lower()] = bfs.extract_links(WIKI_DIR + x)
     return all_links
 
 #only gets all links from one path
