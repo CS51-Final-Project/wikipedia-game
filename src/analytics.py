@@ -48,7 +48,7 @@ def center(dictionary):
     pages = os.listdir(WIKI_DIR)
     for p in pages:
         center_dict[p] = len(bfs.BFS(p, wiki_dict = dictionary).keys())
-    return sorted(center_dict, key = center_dict.__getitem__, reverse = True)[0]
+    return sorted(center_dict, key = center_dict.__getitem__, reverse = True)[:3]
 
 def where_referenced(link, dictionary):
     try:
