@@ -78,7 +78,10 @@ def BFS(src, dest = None, wiki_dict = None):
         if s == dest:
             return the_path(s, prev)
             #extract all the pages it links to
-        links = wiki_dict[s]
+        try: 
+            links = wiki_dict[s]
+        except(Exception):
+            return "Article not present in directory"
         #set the parent, add all the links to the queue, and mark them as visited
         for p in links:
             if not p in visited:
