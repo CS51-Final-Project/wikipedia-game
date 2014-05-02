@@ -21,10 +21,10 @@ def load_links():
 
 #only gets all links from one path
 def load_dict(dictionary):
-    for keys in dictionary.keys(): #loop for all keys in dictionary
-        for link in link_list: #keep track of links we've visited
+    for key in dictionary.keys(): #loop for all keys in dictionary
+        for link in dictionary[key]: #keep track of links we've visited
             visited.add(link)
-        for links in dictionary[keys]:
+        for links in dictionary[key]:
             if links in popular.keys():
                 popular[links] += 1; #update frequency of link
             else:
